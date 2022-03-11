@@ -13,13 +13,6 @@ body {
     transition: 0.4 ease-out;
 }
 
-.app-warm {
-    background-image: url('./warm-bg.jpg');
-    background-size: cover;
-    background-position: bottom;
-    transition: 0.4 ease-out;
-}
-
 main {
     display: flex;
     flex-direction: column;
@@ -31,15 +24,41 @@ main {
 .search-container {
     height: 20vh;
     width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10%;
+}
+
+.location-date-box {
+    padding: 20px 45px;
+    border-right: 2px solid rgb(27,91,191);
+}
+
+.location {
+    color: white;
+    font-size: 45px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.date {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 35px;
 }
 
 .search-box {
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 0 45px;
 }
 
-.search-box .search-bar {
+.search-bar {
     width: 650px;
+    height: 53px;
     padding: 15px;
     border: none;
     outline: none;
@@ -52,6 +71,23 @@ main {
     height: 80vh;
 }
 
+.today-temp {
+    height: 40vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.today-temp-left-box {
+    display: flex;
+}
+
+.today-temp-right-box {
+    background: #fff;
+    height: 80%;
+    width: 750px;
+}
+
 .temp-icon-container img {
     width: 155px;
     filter: invert(100%) sepia(5%) saturate(482%) hue-rotate(23deg) brightness(119%) contrast(102%);
@@ -62,48 +98,15 @@ main {
     color: #fff;
 }
 
-.location-box .location {
-    color: white;
-    font-size: 32px;
-    font-weight: 500;
-    text-align: center;
-    text-shadow: 3px 3px rgba(50, 50, 75, 0.5);
-}
-
-.location-box .date {
-    color: #fff;
-    font-size: 20px;
-    font-weight: 300;
-    font-style: italic;
-    text-align: center;
-    text-shadow: 2px 2px rgba(50, 50, 75, 0.5);
-}
-
-.weather-box {
-    text-align: center;
-}
-
-.weather-box .temp {
-    position: relative;
-    display: inline-block;
-    margin: 30px auto;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-
-    padding: 15px 25px;
-
+.temp {
+    display: flex;
     color: white;
     font-size: 102px;
-    font-weight: 900;
-
-    text-shadow: 3px 6px rgba(50, 50, 75, 0.5);
-    text-align: center;
-    box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+    font-weight: 100; 
 }
 
 .weather-box .weather {
     color: white;
-    font-size: 48px;
-    font-weight: 700;
-    text-shadow: 3px 3px rgba(50, 50, 75, 0.5);
+    font-size: 25px;
+    font-weight: 100;
 }
