@@ -78,30 +78,34 @@ main {
     justify-content: center;
     align-items: center;
 }
+
 .today-temp-left-box {
     display: flex;
+    padding: 25px 55px;
+    margin-right: 55px;
+    border-right: 3px solid rgb(27,91,191);
+    gap: 35px;
 }
 
 .today-temp-right-box {
-    background: #fff;
     height: 80%;
-    width: 750px;
+    width: 450px;
 }
 
 .temp-icon-container img {
-    width: 155px;
+    width: 175px;
     filter: invert(100%) sepia(5%) saturate(482%) hue-rotate(23deg) brightness(119%) contrast(102%);
 }
 
 .degree-icon {
-    font-size: 35px;
+    font-size: 25px;
     color: #fff;
 }
 
 .temp {
     display: flex;
     color: white;
-    font-size: 102px;
+    font-size: 150px;
     font-weight: 100; 
 }
 
@@ -113,17 +117,15 @@ main {
 
 .weather-data-top, .weather-data-bottom {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     height: 50%;
     width: 100%;
-    background-color: rebeccapurple;
 }
 
 .weather-data-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid white;
 }
 
 .display-box-top {

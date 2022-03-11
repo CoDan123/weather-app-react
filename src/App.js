@@ -119,6 +119,12 @@ function App() {
                   </div>
 
                   <div className="week-temp">
+
+                        <div className="todays-weather-header">Today's Weather</div>
+                        <div className="forecast-container">
+
+                        </div>
+
                   </div>
 
               </div>
