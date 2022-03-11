@@ -83,11 +83,37 @@ function App() {
                       </div>
 
                       <div className="today-temp-right-box">
-                        <div className="weather-data-top">
 
-                        </div>
-                        <div className="weather-data-bottom">
-                        </div>
+                          <div className="weather-data-top">
+                              <div className="weather-data-box">
+                                  <div className="display-box-top">top</div>
+                                  <div className="display-box-bottom">bottom</div>
+                              </div>
+                              <div className="weather-data-box">
+                                  <div className="display-box-top">top</div>
+                                  <div className="display-box-bottom">bottom</div>
+                              </div>
+                              <div className="weather-data-box">
+                                  <div className="display-box-top">top</div>
+                                  <div className="display-box-bottom">bottom</div>
+                              </div>
+                          </div>
+
+                          <div className="weather-data-bottom">
+                              <div className="weather-data-box">
+                                  <div className="display-box-top">top</div>
+                                  <div className="display-box-bottom">bottom</div>
+                              </div>
+                              <div className="weather-data-box">
+                                  <div className="display-box-top">top</div>
+                                  <div className="display-box-bottom">bottom</div>
+                              </div>
+                              <div className="weather-data-box">
+                                  <div className="display-box-top">top</div>
+                                  <div className="display-box-bottom">bottom</div>
+                              </div>
+                          </div>
+                          
                       </div>
 
                   </div>

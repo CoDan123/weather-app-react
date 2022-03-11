@@ -105,8 +105,33 @@ main {
     font-weight: 100; 
 }
 
-.weather-box .weather {
+.weather {
     color: white;
     font-size: 25px;
     font-weight: 100;
+}
+
+.weather-data-top, .weather-data-bottom {
+    display: flex;
+    justify-content: space-evenly;
+    height: 50%;
+    width: 100%;
+    background-color: rebeccapurple;
+}
+
+.weather-data-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid white;
+}
+
+.display-box-top {
+    font-size: 30px;
+    color: #fff;
+}
+
+.display-box-bottom {
+    font-size: 20px;
+    color: #fff;
 }
