@@ -51,6 +51,11 @@ function App() {
     return `${day} ${date} ${month} ${year}`;
   }
 
+  const capitalize = (word) => {
+    return word.charAt(0).toUpperCase() +
+    word.slice(1);
+  }
+
   return (
     <div className='app'>
       <main> 
@@ -90,7 +95,7 @@ function App() {
             
                           <div className="weather-box">
                             <div className="temp">{Math.round(weather.current.temp)}<FontAwesomeIcon className="degree-icon" icon={faO} /></div>
-                            <div className="weather">{weather.current.weather[0].description}</div>
+                            <div className="weather">{capitalize(weather.current.weather[0].description)}</div>
                           </div>
                       </div>
 
