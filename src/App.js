@@ -14,13 +14,15 @@ function App() {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
   const [units, setUnits] = useState('imperial');
+  const [geoCodeData, setGeoCodeData] = useState();
+  const [hasSearched, setHasSearched] = useState(false);
 
-  
 
   const getLatLon = async (evt) => {
       if(evt.key === "Enter"){
         const response = await fetch(`${api.geocode}q=${query}&APPID=${api.key}`);
         const coords = await response.json();
+        setGeoCodeData(coords);
         getWeather(coords);
     }    
   }
@@ -29,9 +31,11 @@ function App() {
     const response = await fetch(`${api.base}lat=${coords[0].lat}&lon=${coords[0].lon}&units=${units}&appid=${api.key}`);
     const data = await response.json();
     setWeather(data);
+    setHasSearched(true);
   }
 
   console.log(weather);
+  console.log(geoCodeData);
 
   
   const dateBuilder = (d) => {
@@ -53,12 +57,12 @@ function App() {
 
           <div className="search-container">
 
-              {/* {(typeof weather.main != "undefined") ? (
+              {(hasSearched === true) ? (
                   <div className="location-date-box">
-                      <div className="location">{weather.name}, {weather.sys.country}</div>
+                      <div className="location">{geoCodeData[0].name}, {geoCodeData[0].country}</div>
                       <div className="date">{dateBuilder(new Date())}</div>
                   </div>
-              ) : ('')} */}
+              ) : ('')}
               
               <div className='search-box'>
                   <input 
@@ -73,7 +77,7 @@ function App() {
 
           </div>
         
-          {/* {(typeof weather.main != "undefined") ? (
+          {(hasSearched === true) ? (
 
               <div className="main-temp-container">
 
@@ -81,12 +85,12 @@ function App() {
 
                       <div className="today-temp-left-box">
                           <div className="temp-icon-container">
-                              <img src={`./images/${weather.weather[0].main}.svg`} alt='Weather Icon'></img>
+                              <img src={`./images/${weather.current.weather[0].main}.svg`} alt='Weather Icon'></img>
                           </div>
             
                           <div className="weather-box">
-                            <div className="temp">{Math.round(weather.main.temp)}<FontAwesomeIcon className="degree-icon" icon={faO} /></div>
-                            <div className="weather">{weather.weather[0].description}</div>
+                            <div className="temp">{Math.round(weather.current.temp)}<FontAwesomeIcon className="degree-icon" icon={faO} /></div>
+                            <div className="weather">{weather.current.weather[0].description}</div>
                           </div>
                       </div>
 
@@ -94,31 +98,31 @@ function App() {
 
                           <div className="weather-data-top">
                               <div className="weather-data-box">
-                                  <div className="display-box-top">top</div>
-                                  <div className="display-box-bottom">bottom</div>
+                                  <div className="display-box-top">{Math.round(weather.daily[0].temp.max)}</div>
+                                  <div className="display-box-bottom">High</div>
                               </div>
                               <div className="weather-data-box">
                                   <div className="display-box-top">top</div>
-                                  <div className="display-box-bottom">bottom</div>
+                                  <div className="display-box-bottom">Wind</div>
                               </div>
                               <div className="weather-data-box">
                                   <div className="display-box-top">top</div>
-                                  <div className="display-box-bottom">bottom</div>
+                                  <div className="display-box-bottom">Sunrise</div>
                               </div>
                           </div>
 
                           <div className="weather-data-bottom">
                               <div className="weather-data-box">
-                                  <div className="display-box-top">top</div>
-                                  <div className="display-box-bottom">bottom</div>
+                                  <div className="display-box-top">{Math.round(weather.daily[0].temp.min)}</div>
+                                  <div className="display-box-bottom">Low</div>
                               </div>
                               <div className="weather-data-box">
                                   <div className="display-box-top">top</div>
-                                  <div className="display-box-bottom">bottom</div>
+                                  <div className="display-box-bottom">Rain</div>
                               </div>
                               <div className="weather-data-box">
                                   <div className="display-box-top">top</div>
-                                  <div className="display-box-bottom">bottom</div>
+                                  <div className="display-box-bottom">Sunset</div>
                               </div>
                           </div>
                           
@@ -137,7 +141,7 @@ function App() {
 
               </div>
 
-          ) : ('')} */}
+          ) : ('')}
           
       </main>
     </div>
