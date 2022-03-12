@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faO } from '@fortawesome/free-solid-svg-icons'
+import { faO } from '@fortawesome/free-solid-svg-icons';
+import DayWeatherCard from './DayWeatherCard';
 
 const api = {
   key: '894dd5823ad63f4e26577e6e24a332dd',
@@ -140,6 +141,10 @@ function App() {
                         <div className="title-and-week-cards">
                             <div className="week-weather-header">Weather This Week</div>
                             <div className="forecast-container">
+                                {weather.daily.map((index) => (<DayWeatherCard
+                                temperature={index.temp.day}
+                                weatherIcon={index.weather[0].main}
+                                />))}
                             </div>
                         </div>
 
