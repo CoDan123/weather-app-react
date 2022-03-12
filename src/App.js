@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faO } from '@fortawesome/free-solid-svg-icons'
 
 const api = {
-  key: '646219b45cc66fd0bd8bbf3855272664',
-  base: 'https://api.openweathermap.org/data/2.5/'
+  key: '894dd5823ad63f4e26577e6e24a332dd',
+  base: 'https://api.openweathermap.org/data/2.5/onecall?',
+  geocode: 'http://api.openweathermap.org/geo/1.0/direct?'
 }
 
 
@@ -14,18 +15,25 @@ function App() {
   const [weather, setWeather] = useState({});
   const [units, setUnits] = useState('imperial');
 
-  const search = (evt) => {
+  
+
+  const getLatLon = async (evt) => {
       if(evt.key === "Enter"){
-        fetch(`${api.base}weather?q=${query}&units=${units}&APPID=${api.key}`)
-        .then(res => res.json())
-        .then(result => {
-          setWeather(result);
-          setQuery('');
-          console.log(result)
-          });
-      }
+        const response = await fetch(`${api.geocode}q=${query}&APPID=${api.key}`);
+        const coords = await response.json();
+        getWeather(coords);
+    }    
   }
 
+  const getWeather = async (coords) => {
+    const response = await fetch(`${api.base}lat=${coords[0].lat}&lon=${coords[0].lon}&units=${units}&appid=${api.key}`);
+    const data = await response.json();
+    setWeather(data);
+  }
+
+  console.log(weather);
+
+  
   const dateBuilder = (d) => {
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
     'September', 'October', 'November', 'December'];
@@ -45,12 +53,12 @@ function App() {
 
           <div className="search-container">
 
-              {(typeof weather.main != "undefined") ? (
+              {/* {(typeof weather.main != "undefined") ? (
                   <div className="location-date-box">
                       <div className="location">{weather.name}, {weather.sys.country}</div>
                       <div className="date">{dateBuilder(new Date())}</div>
                   </div>
-              ) : ('')}
+              ) : ('')} */}
               
               <div className='search-box'>
                   <input 
@@ -59,13 +67,13 @@ function App() {
                     placeholder='Search...'
                     onChange={e => setQuery(e.target.value)}
                     value={query}
-                    onKeyPress={search}
+                    onKeyPress={getLatLon}
                   />
               </div>
 
           </div>
         
-          {(typeof weather.main != "undefined") ? (
+          {/* {(typeof weather.main != "undefined") ? (
 
               <div className="main-temp-container">
 
@@ -129,7 +137,7 @@ function App() {
 
               </div>
 
-          ) : ('')}
+          ) : ('')} */}
           
       </main>
     </div>
