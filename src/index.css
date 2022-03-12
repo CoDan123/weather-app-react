@@ -141,3 +141,27 @@ main {
     font-size: 20px;
     color: rgb(113, 151, 255);
 }
+
+.week-temp {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 40vh;
+    background-color: aquamarine;
+}
+
+.title-and-week-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    width: 80%;
+    background-color: black;
+    color: #fff;
+}
+
+.week-weather-header {
+    font-size: 25px;
+    color: rgb(113, 151, 255);
+}
+

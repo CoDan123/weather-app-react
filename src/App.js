@@ -107,7 +107,7 @@ function App() {
                                   <div className="display-box-bottom">High</div>
                               </div>
                               <div className="weather-data-box">
-                                  <div className="display-box-top">top</div>
+                                  <div className="display-box-top">{weather.current.wind_speed}</div>
                                   <div className="display-box-bottom">Wind</div>
                               </div>
                               <div className="weather-data-box">
@@ -137,9 +137,10 @@ function App() {
 
                   <div className="week-temp">
 
-                        <div className="todays-weather-header">Today's Weather</div>
-                        <div className="forecast-container">
-
+                        <div className="title-and-week-cards">
+                            <div className="week-weather-header">Weather This Week</div>
+                            <div className="forecast-container">
+                            </div>
                         </div>
 
                   </div>
