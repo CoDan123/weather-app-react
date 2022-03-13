@@ -112,7 +112,7 @@ function App() {
                                   <div className="display-box-bottom">Wind</div>
                               </div>
                               <div className="weather-data-box">
-                                  <div className="display-box-top">top</div>
+                                  <div className="display-box-top">{weather.current.sunrise}</div>
                                   <div className="display-box-bottom">Sunrise</div>
                               </div>
                           </div>
@@ -142,8 +142,9 @@ function App() {
                             <div className="week-weather-header">Weather This Week</div>
                             <div className="forecast-container">
                                 {weather.daily.map((index) => (<DayWeatherCard
-                                temperature={index.temp.day}
+                                
                                 weatherIcon={index.weather[0].main}
+                                temperature={index.temp.day}
                                 />))}
                             </div>
                         </div>

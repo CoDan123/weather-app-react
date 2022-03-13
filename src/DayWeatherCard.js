@@ -3,8 +3,9 @@ import react from 'react';
 const DayWeatherCard = (props) => {
     return (
         <div className='day-weather-card'>
-            {props.temperature}
+            Weekday
             <img src={`./images/${props.weatherIcon}.svg`} alt="" />
+            {props.temperature}
         </div>
     )
 }
