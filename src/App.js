@@ -57,6 +57,14 @@ function App() {
     word.slice(1);
   }
 
+  const convertUnix = (timeStamp) => {
+    let dateObj = new Date(timeStamp * 1000);
+    let hours = dateObj.getUTCHours().toString().padStart(2,0);
+    let minutes = dateObj.getUTCMinutes().toString().padStart(2,0);
+
+    return (`${hours}:${minutes}`)
+  }
+
   return (
     <div className='app'>
       <main> 
@@ -112,7 +120,7 @@ function App() {
                                   <div className="display-box-bottom">Wind</div>
                               </div>
                               <div className="weather-data-box">
-                                  <div className="display-box-top">{weather.current.sunrise}</div>
+                                  <div className="display-box-top">{convertUnix(weather.current.sunrise)}</div>
                                   <div className="display-box-bottom">Sunrise</div>
                               </div>
                           </div>
@@ -127,7 +135,7 @@ function App() {
                                   <div className="display-box-bottom">Rain</div>
                               </div>
                               <div className="weather-data-box">
-                                  <div className="display-box-top">top</div>
+                                  <div className="display-box-top">{convertUnix(weather.current.sunset)}</div>
                                   <div className="display-box-bottom">Sunset</div>
                               </div>
                           </div>
