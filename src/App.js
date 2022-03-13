@@ -2,14 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faO } from '@fortawesome/free-solid-svg-icons';
 import DayWeatherCard from './DayWeatherCard';
+import ConvertUnix from "./Components/ConvertUnix";
 
 const api = {
   key: '894dd5823ad63f4e26577e6e24a332dd',
   base: 'https://api.openweathermap.org/data/2.5/onecall?',
   geocode: 'http://api.openweathermap.org/geo/1.0/direct?'
 }
-
-
 
 function App() {
   const [query, setQuery] = useState('');
@@ -55,14 +54,6 @@ function App() {
   const capitalize = (word) => {
     return word.charAt(0).toUpperCase() +
     word.slice(1);
-  }
-
-  const convertUnix = (timeStamp) => {
-    let dateObj = new Date(timeStamp * 1000);
-    let hours = dateObj.getUTCHours().toString().padStart(2,0);
-    let minutes = dateObj.getUTCMinutes().toString().padStart(2,0);
-
-    return (`${hours}:${minutes}`)
   }
 
   return (
@@ -120,7 +111,7 @@ function App() {
                                   <div className="display-box-bottom">Wind</div>
                               </div>
                               <div className="weather-data-box">
-                                  <div className="display-box-top">{convertUnix(weather.current.sunrise)}</div>
+                                  <div className="display-box-top">{ConvertUnix(weather.current.sunrise)}</div>
                                   <div className="display-box-bottom">Sunrise</div>
                               </div>
                           </div>
@@ -135,7 +126,7 @@ function App() {
                                   <div className="display-box-bottom">Rain</div>
                               </div>
                               <div className="weather-data-box">
-                                  <div className="display-box-top">{convertUnix(weather.current.sunset)}</div>
+                                  <div className="display-box-top">{ConvertUnix(weather.current.sunset)}</div>
                                   <div className="display-box-bottom">Sunset</div>
                               </div>
                           </div>
