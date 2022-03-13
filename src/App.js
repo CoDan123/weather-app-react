@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faO } from '@fortawesome/free-solid-svg-icons';
 import DayWeatherCard from './DayWeatherCard';
 import ConvertUnix from "./Components/ConvertUnix";
+import DateBuilder from "./Components/DateBuilder";
 
 const api = {
   key: '894dd5823ad63f4e26577e6e24a332dd',
@@ -16,6 +17,7 @@ function App() {
   const [units, setUnits] = useState('imperial');
   const [geoCodeData, setGeoCodeData] = useState();
   const [hasSearched, setHasSearched] = useState(false);
+  const [dayOfWeek, setDayOfWeek] = useState('');
 
 
   const getLatLon = async (evt) => {
@@ -37,23 +39,16 @@ function App() {
   console.log(weather);
   console.log(geoCodeData);
 
-  
-  const dateBuilder = (d) => {
-    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
-    'September', 'October', 'November', 'December'];
-    let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',];
-    
-    let day = days[d.getDay()];
-    let date = d.getDate();
-    let month = months[d.getMonth()];
-    let year = d.getFullYear();
-    
-    return `${day} ${date} ${month} ${year}`;
-  }
-
   const capitalize = (word) => {
     return word.charAt(0).toUpperCase() +
     word.slice(1);
+  }
+
+  const getDayOfWeek = () => {
+        let dayOfWeek = days.indexOf(day);
+        for(let i = dayOfWeek; i <= 8; i++) {
+            
+        }
   }
 
   return (
@@ -65,7 +60,7 @@ function App() {
               {(hasSearched === true) ? (
                   <div className="location-date-box">
                       <div className="location">{geoCodeData[0].name}, {geoCodeData[0].country}</div>
-                      <div className="date">{dateBuilder(new Date())}</div>
+                      <div className="date">{DateBuilder(new Date())}</div>
                   </div>
               ) : ('')}
               
@@ -141,7 +136,7 @@ function App() {
                             <div className="week-weather-header">Weather This Week</div>
                             <div className="forecast-container">
                                 {weather.daily.map((index) => (<DayWeatherCard
-                                
+                                weekDay={getDayOfWeek(index)}
                                 weatherIcon={index.weather[0].main}
                                 temperature={index.temp.day}
                                 />))}
