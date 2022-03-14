@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faO } from '@fortawesome/free-solid-svg-icons';
 import DayWeatherCard from './DayWeatherCard';
-import ConvertUnix from "./Components/ConvertUnix";
-import DateBuilder from "./Components/DateBuilder";
+import ConvertUnix from "./HandlerFunctions/ConvertUnix";
+import DateBuilder from "./HandlerFunctions/DateBuilder";
+import GetDayOfWeek from "./HandlerFunctions/GetDayOfWeek";
 
 const api = {
   key: '894dd5823ad63f4e26577e6e24a332dd',
@@ -18,8 +19,7 @@ function App() {
   const [geoCodeData, setGeoCodeData] = useState();
   const [hasSearched, setHasSearched] = useState(false);
   const [dayOfWeek, setDayOfWeek] = useState('');
-
-
+  
   const getLatLon = async (evt) => {
       if(evt.key === "Enter"){
         const response = await fetch(`${api.geocode}q=${query}&APPID=${api.key}`);
@@ -36,19 +36,9 @@ function App() {
     setHasSearched(true);
   }
 
-  console.log(weather);
-  console.log(geoCodeData);
-
   const capitalize = (word) => {
     return word.charAt(0).toUpperCase() +
     word.slice(1);
-  }
-
-  const getDayOfWeek = () => {
-        let dayOfWeek = days.indexOf(day);
-        for(let i = dayOfWeek; i <= 8; i++) {
-            
-        }
   }
 
   return (
@@ -136,7 +126,8 @@ function App() {
                             <div className="week-weather-header">Weather This Week</div>
                             <div className="forecast-container">
                                 {weather.daily.map((index) => (<DayWeatherCard
-                                weekDay={getDayOfWeek(index)}
+                                // weekDay={getDayOfWeek(index)}
+                                key={''}
                                 weatherIcon={index.weather[0].main}
                                 temperature={index.temp.day}
                                 />))}
