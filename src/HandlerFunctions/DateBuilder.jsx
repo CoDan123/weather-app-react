@@ -1,4 +1,5 @@
 import react from "react";
+import GetDayOfWeek from "./GetDayOfWeek";
 
 const DateBuilder = (d) => {
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
