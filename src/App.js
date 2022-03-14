@@ -7,8 +7,9 @@ import WeekTempSection from "./Components/WeekTempSection";
 
 const api = {
   key: '894dd5823ad63f4e26577e6e24a332dd',
+  geoKey: '0196f96a9f24ea0adf56618d34aff66d',
   base: 'https://api.openweathermap.org/data/2.5/onecall?',
-  geocode: 'http://api.openweathermap.org/geo/1.0/direct?'
+  geocode: 'http://api.positionstack.com/v1/forward?'
 }
 
 function App() {
@@ -21,19 +22,23 @@ function App() {
   
   const getLatLon = async (evt) => {
       if(evt.key === "Enter"){
-        const response = await fetch(`${api.geocode}q=${query}&APPID=${api.key}`);
+        const response = await fetch(`${api.geocode}access_key=${api.geoKey}&query=${query}`);
         const coords = await response.json();
+        console.log(coords)
         setGeoCodeData(coords);
         getWeather(coords);
     }    
   }
 
   const getWeather = async (coords) => {
-    const response = await fetch(`${api.base}lat=${coords[0].lat}&lon=${coords[0].lon}&units=${units}&appid=${api.key}`);
+    const response = await fetch(`${api.base}lat=${coords.data[0].latitude}&lon=${coords.data[0].longitude}&units=${units}&appid=${api.key}`);
     const data = await response.json();
+    console.log(data)
     setWeather(data);
     setHasSearched(true);
   }
+
+
 
   return (
     <div className='app'>
@@ -43,7 +48,7 @@ function App() {
 
                 {(hasSearched === true) ? (
                     <div className="location-date-box">
-                        <div className="location">{geoCodeData[0].name}, {geoCodeData[0].country}</div>
+                        <div className="location">{geoCodeData.data[0].name}, {geoCodeData.data[0].country}</div>
                         <div className="date">{DateBuilder(new Date())}</div>
                     </div>
                 ) : ('')}
