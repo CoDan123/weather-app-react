@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import ConvertUnix from "./HandlerFunctions/ConvertUnix";
 import DateBuilder from "./HandlerFunctions/DateBuilder";
-import GetDayOfWeek from "./HandlerFunctions/GetDayOfWeek";
 import TodayTempSection from "./Components/TodayTempSection";
 import WeekTempSection from "./Components/WeekTempSection";
 
@@ -18,7 +16,6 @@ function App() {
   const [units, setUnits] = useState('imperial');
   const [geoCodeData, setGeoCodeData] = useState();
   const [hasSearched, setHasSearched] = useState(false);
-  const [dayOfWeek, setDayOfWeek] = useState('');
   
   const getLatLon = async (evt) => {
       if(evt.key === "Enter"){
@@ -73,7 +70,6 @@ function App() {
                     />
                     <WeekTempSection
                     weather={weather}
-                    dayOfWeek
                     />
 
                     </div>
