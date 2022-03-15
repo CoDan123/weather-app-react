@@ -38,8 +38,6 @@ function App() {
     setHasSearched(true);
   }
 
-
-
   return (
     <div className='app'>
         <main> 

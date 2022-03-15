@@ -8,13 +8,18 @@ const capitalize = (word) => {
     word.slice(1);
   }
 
+const findWeatherIcon = (ico) => {
+ const iconTypes = ['Clear', 'Clouds','Drizzle','Rain','Snow','Thunderstorm'];
+   return iconTypes.includes(ico) ? ico : 'Clouds';
+}
+
 const TodayTempSection = (props) => {
     return (
         <div className="today-temp">
 
                       <div className="today-temp-left-box">
                           <div className="temp-icon-container">
-                              <img src={`./images/${props.weather.current.weather[0].main}.svg`} alt='Weather Icon'></img>
+                              <img src={`./images/${findWeatherIcon(props.weather.current.weather[0].main)}.svg`} alt='Weather Icon'></img>
                           </div>
             
                           <div className="weather-box">
