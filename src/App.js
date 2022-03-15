@@ -16,9 +16,11 @@ function App() {
   const [units, setUnits] = useState('imperial');
   const [geoCodeData, setGeoCodeData] = useState();
   const [hasSearched, setHasSearched] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   
   const getLatLon = async (evt) => {
       if(evt.key === "Enter"){
+        setIsLoading(true);
         const response = await fetch(`${api.geocode}access_key=${api.geoKey}&query=${query}`);
         const coords = await response.json();
         console.log(coords)
@@ -33,35 +35,48 @@ function App() {
     console.log(data)
     setWeather(data);
     setHasSearched(true);
+    setIsLoading(false);
   }
 
   return (
     <div className='app'>
         <main> 
 
-            <div className="search-container">
+            <div className={isLoading === false ? "search-container" : ""}>
 
-                {(hasSearched === true) ? (
+                {(hasSearched === true && isLoading === false) ? (
                     <div className="location-date-box">
                         <div className="location">{geoCodeData.data[0].label}</div>
                         <div className="date">{DateBuilder(new Date())}</div>
                     </div>
                 ) : ('')}
                 
-                <div className='search-box'>
-                    <input 
-                        type="text" 
-                        className='search-bar'
-                        placeholder='Search...'
-                        onChange={e => setQuery(e.target.value)}
-                        value={query}
-                        onKeyPress={getLatLon}
-                    />
-                </div>
+                {(isLoading === false) ? (
+                  <div className='search-box'>
+                  <input 
+                      type="text" 
+                      className='search-bar'
+                      placeholder='Search...'
+                      onChange={e => setQuery(e.target.value)}
+                      value={query}
+                      onKeyPress={getLatLon}
+                  />
+              </div>
+              ) : ('')}
 
             </div>
+
             
-            {(hasSearched === true) ? (
+            {(isLoading === true) ? (
+
+            <div className="main-temp-container-loading">
+
+                LOADING...
+
+            </div>): ('')}
+
+
+            {(hasSearched === true && isLoading === false) ? (
 
                 <div className="main-temp-container">
 
