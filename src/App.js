@@ -48,7 +48,7 @@ function App() {
 
                 {(hasSearched === true) ? (
                     <div className="location-date-box">
-                        <div className="location">{geoCodeData.data[0].name}, {geoCodeData.data[0].country}</div>
+                        <div className="location">{geoCodeData.data[0].label}</div>
                         <div className="date">{DateBuilder(new Date())}</div>
                     </div>
                 ) : ('')}
