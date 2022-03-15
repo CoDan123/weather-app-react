@@ -21,13 +21,17 @@ main {
     min-height: 100vh;
 }
 
-.search-container {
+.search-container-home {
     height: 20vh;
     width: 100%;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    padding-left: 10%;
+}
+
+.has-searched-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .location-date-box {
@@ -53,7 +57,14 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 45px;
+    padding-right: 45px;
+    width: 40%;
+}
+
+.search-box-has-searched {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40%;
 }
 

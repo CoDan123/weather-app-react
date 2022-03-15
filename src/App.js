@@ -42,7 +42,7 @@ function App() {
     <div className='app'>
         <main> 
 
-            <div className={isLoading === false ? "search-container" : ""}>
+            <div className={hasSearched === false ? "has-searched-container" : "search-container-home"}>
 
                 {(hasSearched === true && isLoading === false) ? (
                     <div className="location-date-box">
@@ -52,7 +52,7 @@ function App() {
                 ) : ('')}
                 
                 {(isLoading === false) ? (
-                  <div className='search-box'>
+                  <div className={hasSearched === false ? 'search-box-has-searched' : 'search-box'}>
                   <input 
                       type="text" 
                       className='search-bar'
