@@ -18,7 +18,7 @@ const TodayTempSection = (props) => {
                           </div>
             
                           <div className="weather-box">
-                            <div className="temp">{Math.round(props.weather.current.temp)}<FontAwesomeIcon className="degree-icon" icon={faO} /></div>
+                            <div className="temp">{Math.round(props.weather.current.temp)}<FontAwesomeIcon className="degree-icon" icon={faO}/></div>
                             <div className="weather">{capitalize(props.weather.current.weather[0].description)}</div>
                           </div>
                       </div>
@@ -27,11 +27,11 @@ const TodayTempSection = (props) => {
 
                           <div className="weather-data-top">
                               <div className="weather-data-box">
-                                  <div className="display-box-top">{Math.round(props.weather.daily[0].temp.max)}</div>
+                                  <div className="display-box-top">{Math.round(props.weather.daily[0].temp.max)}<FontAwesomeIcon className="degree-icon-small" icon={faO}/></div>
                                   <div className="display-box-bottom">High</div>
                               </div>
                               <div className="weather-data-box">
-                                  <div className="display-box-top">{props.weather.current.wind_speed}</div>
+                                  <div className="display-box-top">{Math.round(props.weather.current.wind_speed)}<span>mph</span></div>
                                   <div className="display-box-bottom">Wind</div>
                               </div>
                               <div className="weather-data-box">
@@ -42,7 +42,7 @@ const TodayTempSection = (props) => {
 
                           <div className="weather-data-bottom">
                               <div className="weather-data-box">
-                                  <div className="display-box-top">{Math.round(props.weather.daily[0].temp.min)}</div>
+                                  <div className="display-box-top">{Math.round(props.weather.daily[0].temp.min)}<FontAwesomeIcon className="degree-icon-small" icon={faO} /></div>
                                   <div className="display-box-bottom">Low</div>
                               </div>
                               <div className="weather-data-box">

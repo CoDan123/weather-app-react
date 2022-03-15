@@ -5,8 +5,9 @@ const ConvertUnix = (timeStamp) => {
     
     let hours = dateObj.getHours().toString().padStart(2, 0);
     let minutes = dateObj.getUTCMinutes().toString();
+    let addZeroIfOneDigit = ('0' + minutes).slice(-2);
 
-    return (`${hours}:${minutes}`);
+    return (`${hours}:${addZeroIfOneDigit}`);
   }
 
   export default ConvertUnix;

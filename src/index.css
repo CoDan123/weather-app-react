@@ -54,10 +54,11 @@ main {
     justify-content: center;
     align-items: center;
     padding: 0 45px;
+    width: 40%;
 }
 
 .search-bar {
-    width: 650px;
+    width: 80%;
     height: 53px;
     padding: 15px;
     border: none;
@@ -130,6 +131,7 @@ main {
     flex-direction: column;
     justify-content: center;
     gap: 10px;
+    width: 90px;
 }
 
 .display-box-top {
@@ -137,9 +139,18 @@ main {
     color: #fff;
 }
 
+.display-box-top span {
+    font-size: 30px;
+}
+
 .display-box-bottom {
     font-size: 20px;
     color: rgb(113, 151, 255);
+}
+
+.degree-icon-small {
+    font-size: 12px;
+    position: absolute;
 }
 
 .week-temp {
@@ -181,12 +192,18 @@ main {
     color: #fff;
     padding: 25px 35px;
     border-radius: 5px;
+    width: 140px;
+    height: 190px;
 }
 
 .day-weather-card img {
     filter: invert(100%) sepia(5%) saturate(482%) hue-rotate(23deg) brightness(119%) contrast(102%);
     width: 60px;
     height: 60px;
+}
+
+@media only screen and (max-width: 1200px) {
+    
 }
 
 
