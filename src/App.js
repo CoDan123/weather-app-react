@@ -71,7 +71,11 @@ function App() {
 
             <div className="main-temp-container-loading">
 
-                LOADING...
+                <div class="lds-ripple">
+                    <div></div>
+                  
+                    <div></div>
+                </div>
 
             </div>): ('')}
 
