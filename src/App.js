@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import DateBuilder from "./HandlerFunctions/DateBuilder";
 import TodayTempSection from "./Components/TodayTempSection";
 import WeekTempSection from "./Components/WeekTempSection";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
 
 const api = {
   key: '894dd5823ad63f4e26577e6e24a332dd',
@@ -44,6 +46,8 @@ function App() {
 
             <div className={hasSearched === true && isLoading === false ? "has-searched-container" : "search-container-home"}>
 
+                {(hasSearched === false && isLoading === false) ? (<div className="home-logo"><FontAwesomeIcon className="weather-logo" icon={faCloudSun} />WeatherFinder</div>) : ('')}
+
                 {(hasSearched === true && isLoading === false) ? (
                     <div className="location-date-box">
                         <div className="location">{geoCodeData.data[0].label}</div>
@@ -51,10 +55,8 @@ function App() {
                     </div>
                 ) : ('')}
                 
-                {(hasSearched === false && isLoading === false) ? (<div className="home-logo">LOGO</div>) : ('')}
-
                 {(isLoading === false) ? (
-                  <div className={hasSearched === false ? 'search-box-has-searched' : 'search-box'}>
+                  <div className={hasSearched === false ? 'search-box' : 'search-box-has-searched'}>
                   <input 
                       type="text" 
                       className='search-bar'

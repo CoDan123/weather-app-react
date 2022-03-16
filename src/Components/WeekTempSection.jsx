@@ -10,7 +10,7 @@ const WeekTempSection = (props) => {
         <div className="week-temp">
 
                         <div className="title-and-week-cards">
-                            <div className="week-weather-header">Weather This Week</div>
+                            <div className="week-weather-header">Over The Next 7 Days</div>
                             <div className="forecast-container">
                                 {props.weather.daily.map((value, index) => {
                                     if(index > 0){

@@ -28,6 +28,17 @@ main {
     justify-content: center;
     align-items: center;
     gap: 25px;
+    animation: transitionIn 500ms;
+}
+
+.weather-logo {
+    color: rgb(148, 177, 255);
+}
+
+.home-logo {
+    color: white;
+    font-size: 45px;
+    font-weight: 600;
 }
 
 .has-searched-container {
@@ -38,6 +49,7 @@ main {
 .location-date-box {
     padding: 20px 45px;
     border-right: 2px solid rgb(27,91,191);
+    animation: transitionIn 500ms;
 }
 
 .location {
@@ -54,15 +66,7 @@ main {
     line-height: 35px;
 }
 
-.search-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 45px;
-    width: 40%;
-}
-
-.search-box-has-searched {
+.search-box, .search-box-has-searched {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,6 +86,7 @@ main {
 .main-temp-container {
     width: 100%;
     height: 80vh;
+
 }
 
 .main-temp-container-loading {
@@ -133,6 +138,10 @@ main {
     align-items: center;
     background-image: linear-gradient(0deg, rgba(27,91,191,.15),rgba(39,54,160,.15));
     box-shadow: -1px 10px 11px 0px rgba(0,0,0,0.05);
+    opacity: 0;
+    animation: transitionIn 500ms;
+    animation-delay: 200ms;
+    animation-fill-mode: forwards;
 }
 
 .today-temp-left-box {
@@ -212,6 +221,10 @@ main {
     width: 100%;
     min-height: 40vh;
     padding-top: 2%;
+    opacity: 0;
+    animation: transitionIn 500ms;
+    animation-delay: 400ms !important;
+    animation-fill-mode: forwards;
 }
 
 .title-and-week-cards {
@@ -251,6 +264,17 @@ main {
     filter: invert(100%) sepia(5%) saturate(482%) hue-rotate(23deg) brightness(119%) contrast(102%);
     width: 60px;
     height: 60px;
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
 }
 
 @media only screen and (max-width: 1250px) {
