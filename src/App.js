@@ -65,6 +65,7 @@ function App() {
                       value={query}
                       onKeyPress={getLatLon}
                   />
+                  <button className="search-button">Search</button>
               </div>
               ) : ('')}
 
