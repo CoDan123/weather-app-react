@@ -22,16 +22,17 @@ main {
 }
 
 .search-container-home {
-    height: 20vh;
     width: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 25px;
 }
 
 .has-searched-container {
     width: 100%;
     display: flex;
-    justify-content: center;
 }
 
 .location-date-box {

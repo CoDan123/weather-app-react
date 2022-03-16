@@ -42,7 +42,7 @@ function App() {
     <div className='app'>
         <main> 
 
-            <div className={hasSearched === false ? "has-searched-container" : "search-container-home"}>
+            <div className={hasSearched === true && isLoading === false ? "has-searched-container" : "search-container-home"}>
 
                 {(hasSearched === true && isLoading === false) ? (
                     <div className="location-date-box">
@@ -51,6 +51,8 @@ function App() {
                     </div>
                 ) : ('')}
                 
+                {(hasSearched === false && isLoading === false) ? (<div className="home-logo">LOGO</div>) : ('')}
+
                 {(isLoading === false) ? (
                   <div className={hasSearched === false ? 'search-box-has-searched' : 'search-box'}>
                   <input 
