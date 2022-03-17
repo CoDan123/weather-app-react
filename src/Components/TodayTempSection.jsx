@@ -51,8 +51,8 @@ const TodayTempSection = (props) => {
                                   <div className="display-box-bottom">Low</div>
                               </div>
                               <div className="weather-data-box">
-                                  <div className="display-box-top">top</div>
-                                  <div className="display-box-bottom">Rain</div>
+                                  <div className="display-box-top">{props.weather.current.humidity}%</div>
+                                  <div className="display-box-bottom">Humidity</div>
                               </div>
                               <div className="weather-data-box">
                                   <div className="display-box-top">{ConvertUnix(props.weather.current.sunset)}</div>

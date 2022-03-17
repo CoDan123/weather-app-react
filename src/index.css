@@ -18,7 +18,9 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
+    overflow-y: hidden;
+
 }
 
 .search-container-home {
@@ -207,6 +209,7 @@ main {
     justify-content: center;
     gap: 10px;
     width: 90px;
+    padding: 10px 0 10px 0;
 }
 
 .display-box-top {
