@@ -324,6 +324,10 @@ main {
     .location-date-box {
         border-right: none;
     }
+
+    .temp {
+        font-size: 100px;
+    }
 }
 
 
