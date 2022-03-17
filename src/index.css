@@ -79,8 +79,23 @@ main {
     padding: 15px;
     border: none;
     outline: none;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px;
     font-size: 20px;
+}
+
+.search-button {
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #183980;
+    color: #fff;
+}
+
+.search-button:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: #183980;
 }
 
 .main-temp-container {
@@ -131,7 +146,7 @@ main {
   }
   
 .today-temp {
-    height: 40vh;
+    min-height: 40vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -277,12 +292,21 @@ main {
 
 }
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1200px) {
     .day-weather-card {
         width: 100px;
         height: 150px;
     }
 
+    .today-temp {
+        flex-direction: column;
+        padding: 25px 0 25px 0;
+    }
+
+    .today-temp-left-box {
+        border-right: none;
+        border-bottom: 3px solid rgb(27,91,191);
+    }
 }
 
 
