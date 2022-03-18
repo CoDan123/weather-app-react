@@ -15,7 +15,6 @@ const api = {
 function App() {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
-  const [units, setUnits] = useState('imperial');
   const [geoCodeData, setGeoCodeData] = useState();
   const [hasSearched, setHasSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +31,7 @@ function App() {
   }
 
   const getWeather = async (coords) => {
-    const response = await fetch(`${api.base}lat=${coords.data[0].latitude}&lon=${coords.data[0].longitude}&units=${units}&appid=${api.key}`);
+    const response = await fetch(`${api.base}lat=${coords.data[0].latitude}&lon=${coords.data[0].longitude}&units=imperial&appid=${api.key}`);
     const data = await response.json();
     console.log(data)
     setWeather(data);
