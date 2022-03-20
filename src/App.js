@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import DateBuilder from "./HandlerFunctions/DateBuilder";
 import TodayTempSection from "./Components/TodayTempSection";
 import WeekTempSection from "./Components/WeekTempSection";
@@ -19,17 +19,18 @@ function App() {
   const [hasSearched, setHasSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   
+  
+      
   const getLatLon = async (evt) => {
       if(evt.key === "Enter"){
-        setIsLoading(true);
-        const response = await fetch(`${api.geocode}access_key=${api.geoKey}&query=${query}`);
-        const coords = await response.json();
-        console.log(coords)
-        setGeoCodeData(coords);
-        getWeather(coords);
-    }    
+          setIsLoading(true);
+          const response = await fetch(`.netlify/functions/fetchWeather?search=${query}`);
+          const coords = await response.json();
+          setGeoCodeData(coords)
+          getWeather(coords);
+      }
   }
-
+        
   const getWeather = async (coords) => {
     const response = await fetch(`${api.base}lat=${coords.data[0].latitude}&lon=${coords.data[0].longitude}&units=imperial&appid=${api.key}`);
     const data = await response.json();
@@ -41,6 +42,7 @@ function App() {
 
   return (
     <div className='app'>
+    
         <main> 
 
             <div className={hasSearched === true && isLoading === false ? "has-searched-container" : "search-container-home"}>

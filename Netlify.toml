@@ -1,5 +1,5 @@
 [build]
 
     command = "react-scripts build"
-    functions = "Functions"
-    publish = "src"
+    functions = "./Functions"
+    publish = "build"
