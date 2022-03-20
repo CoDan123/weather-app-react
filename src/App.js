@@ -24,9 +24,11 @@ function App() {
   const getLatLon = async (evt) => {
       if(evt.key === "Enter"){
           setIsLoading(true);
-          const response = await fetch(`.netlify/functions/fetchWeather?search=${query}`);
+          const response = await fetch(`/.netlify/functions/fetchWeather?search=${query}`);
           const coords = await response.json();
+          console.log(coords)
           setGeoCodeData(coords)
+          
           getWeather(coords);
       }
   }

@@ -1,5 +1,5 @@
 [build]
 
     command = "react-scripts build"
-    functions = "./Functions"
+    functions = "functions"
     publish = "build"
