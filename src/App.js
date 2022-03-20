@@ -7,9 +7,7 @@ import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
 
 const api = {
   key: '894dd5823ad63f4e26577e6e24a332dd',
-  geoKey: '0196f96a9f24ea0adf56618d34aff66d',
-  base: 'https://api.openweathermap.org/data/2.5/onecall?',
-  geocode: 'http://api.positionstack.com/v1/forward?'
+  base: 'https://api.openweathermap.org/data/2.5/onecall?'
 }
 
 function App() {
@@ -26,9 +24,7 @@ function App() {
           setIsLoading(true);
           const response = await fetch(`/.netlify/functions/fetchWeather?search=${query}`);
           const coords = await response.json();
-          console.log(coords)
           setGeoCodeData(coords)
-          
           getWeather(coords);
       }
   }
@@ -36,7 +32,6 @@ function App() {
   const getWeather = async (coords) => {
     const response = await fetch(`${api.base}lat=${coords.data[0].latitude}&lon=${coords.data[0].longitude}&units=imperial&appid=${api.key}`);
     const data = await response.json();
-    console.log(data)
     setWeather(data);
     setHasSearched(true);
     setIsLoading(false);
@@ -79,7 +74,7 @@ function App() {
 
             <div className="main-temp-container-loading">
 
-                <div class="lds-ripple">
+                <div className="lds-ripple">
                     <div></div>
                   
                     <div></div>

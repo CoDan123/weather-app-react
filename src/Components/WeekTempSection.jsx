@@ -18,6 +18,7 @@ const WeekTempSection = (props) => {
 
                                             return (
                                                 <DayWeatherCard
+                                                key={index}
                                                 dayOfWeek={weekDay}
                                                 weatherIcon={value.weather[0].main}
                                                 temperature={value.temp.day}

@@ -2,8 +2,8 @@ const axios = require('axios');
 
 exports.handler = async (event, context) => {
     const query = event.queryStringParameters.search;
-    const geoCode = 'http://api.positionstack.com/v1/forward?';
-    const geoKey = '0196f96a9f24ea0adf56618d34aff66d';
+    const geoCode = process.env.geoUrl;
+    const geoKey = process.env.geoKey;
     
     const url = `${geoCode}access_key=${geoKey}&query=${query}`;
 
