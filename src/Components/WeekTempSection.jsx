@@ -12,7 +12,7 @@ const WeekTempSection = (props) => {
                         <div className="title-and-week-cards">
                             <div className="week-weather-header">Over The Next 7 Days</div>
                             <div className="forecast-container">
-                                {props.weather.daily.map((value, index) => {
+                                {props.weather.data.daily.map((value, index) => {
                                     if(index > 0){
                                         let weekDay = new Date(value.dt * 1000).toLocaleDateString("default", {weekday: "long"});
 

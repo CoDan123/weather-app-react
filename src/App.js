@@ -4,11 +4,9 @@ import TodayTempSection from "./Components/TodayTempSection";
 import WeekTempSection from "./Components/WeekTempSection";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
+import axios from "axios";
 
-const api = {
-  key: '894dd5823ad63f4e26577e6e24a332dd',
-  base: 'https://api.openweathermap.org/data/2.5/onecall?'
-}
+
 
 function App() {
   const [query, setQuery] = useState('');
@@ -16,23 +14,24 @@ function App() {
   const [geoCodeData, setGeoCodeData] = useState();
   const [hasSearched, setHasSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+ 
   
   
       
   const getLatLon = async (evt) => {
       if(evt.key === "Enter"){
           setIsLoading(true);
-          const response = await fetch(`/.netlify/functions/fetchWeather?search=${query}`);
-          const coords = await response.json();
+          const coords = await axios.get(`/.netlify/functions/fetchGeoCode?search=${query}`);
           setGeoCodeData(coords)
           getWeather(coords);
       }
   }
         
   const getWeather = async (coords) => {
-    const response = await fetch(`${api.base}lat=${coords.data[0].latitude}&lon=${coords.data[0].longitude}&units=imperial&appid=${api.key}`);
-    const data = await response.json();
-    setWeather(data);
+    const {latitude, longitude} = coords.data.data[0];
+    const weatherData = await axios.get(`/.netlify/functions/fetchWeather?latitude=${latitude}&longitude=${longitude}`);
+    
+    setWeather(weatherData);
     setHasSearched(true);
     setIsLoading(false);
   }
@@ -48,7 +47,7 @@ function App() {
 
                 {(hasSearched === true && isLoading === false) ? (
                     <div className="location-date-box">
-                        <div className="location">{geoCodeData.data[0].label}</div>
+                        <div className="location">{geoCodeData.data.data[0].label}</div>
                         <div className="date">{DateBuilder(new Date())}</div>
                     </div>
                 ) : ('')}
