@@ -14,17 +14,12 @@ function App() {
   const [geoCodeData, setGeoCodeData] = useState();
   const [hasSearched, setHasSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
- 
-  
-  
-      
-  const getLatLon = async (evt) => {
-      if(evt.key === "Enter"){
+     
+  const getLatLon = async () => {
           setIsLoading(true);
           const coords = await axios.get(`/.netlify/functions/fetchGeoCode?search=${query}`);
           setGeoCodeData(coords)
           getWeather(coords);
-      }
   }
         
   const getWeather = async (coords) => {
@@ -60,7 +55,11 @@ function App() {
                       placeholder='Search...'
                       onChange={e => setQuery(e.target.value)}
                       value={query}
-                      onKeyPress={getLatLon}
+                      onKeyPress={(evt) =>{
+                          if (evt.key === 'Enter'){
+                              getLatLon();
+                          }
+                      }}
                   />
                   <button onClick={getLatLon} className="search-button">Search</button>
               </div>
