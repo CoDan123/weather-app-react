@@ -255,7 +255,8 @@ main {
 
 .week-weather-header {
     font-size: 25px;
-    color: rgb(148, 177, 255);
+    /* color: rgb(148, 177, 255); */
+    color: orange;
 }
 
 .forecast-container {
