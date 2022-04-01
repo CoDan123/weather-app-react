@@ -16,16 +16,15 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
      
   const getLatLon = async () => {
-          setIsLoading(true);
-          const coords = await axios.get(`/.netlify/functions/fetchGeoCode?search=${query}`);
-          setGeoCodeData(coords)
-          getWeather(coords);
+    setIsLoading(true);
+    const coords = await axios.get(`/.netlify/functions/fetchGeoCode?search=${query}`);
+    setGeoCodeData(coords)
+    getWeather(coords);
   }
         
   const getWeather = async (coords) => {
     const {latitude, longitude} = coords.data.data[0];
     const weatherData = await axios.get(`/.netlify/functions/fetchWeather?latitude=${latitude}&longitude=${longitude}`);
-    
     setWeather(weatherData);
     setHasSearched(true);
     setIsLoading(false);
