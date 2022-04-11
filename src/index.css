@@ -46,6 +46,7 @@ main {
 .logo-has-searched {
     color: white;
     font-weight: 600;
+    line-height: 25px;
 }
 
 .has-searched-container {
@@ -128,6 +129,7 @@ main {
     width: 180px;
     height: 180px;
   }
+
   .lds-ripple div {
     position: absolute;
     border: 4px solid #fff;
@@ -135,9 +137,11 @@ main {
     border-radius: 50%;
     animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
   }
+
   .lds-ripple div:nth-child(2) {
     animation-delay: -0.5s;
   }
+
   @keyframes lds-ripple {
     0% {
       top: 100px;
@@ -157,6 +161,7 @@ main {
   
 .today-temp {
     min-height: 40vh;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -179,7 +184,7 @@ main {
 
 .today-temp-right-box {
     height: 80%;
-    width: 450px;
+    width: 350px;
 }
 
 .temp-icon-container img {
@@ -264,6 +269,10 @@ main {
 .week-weather-header {
     font-size: 25px;
     color: rgb(148, 177, 255);
+}
+
+#five-days, #three-days {
+    display: none;
 }
 
 .forecast-container {
@@ -375,14 +384,24 @@ main {
 
     .today-temp {
         flex-direction: column;
+        gap: 15px;
         padding-bottom: 25px;
     }
 
     .today-temp-left-box {
         margin-right: 0;
         border-right: 0;
-        border-bottom: 3px solid rgb(27,91,191);
+        border-bottom: 2px solid rgb(27,91,191);
     } 
+
+    .week-temp {
+        padding: 35px 0 ;
+        
+    }
+
+    .week-weather-header {
+        font-size: 20px;
+    }
 
     .day-weather-card {
         padding: 20px 35px;
@@ -392,6 +411,75 @@ main {
     .day-weather-card:nth-child(-n+2){
         display: none;
     }
+
+    #seven-days, #three-days {
+        display: none;
+    }
+
+    #five-days {
+        display: inline;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .day-weather-card:nth-child(-n+4){
+        display: none;
+    }
+
+    .today-temp-left-box {
+        width: 100%;
+        justify-content: center;
+        padding: 15px 25px;
+    }
+
+    .temp-icon-container img {
+        width: 100px;
+        margin: auto;
+    }
+
+    .temp {
+        font-size: 75px;
+    }
+
+    .weather {
+        font-size: 20px;
+    }
+
+   .date {
+       font-size: 16px;
+   }
+
+   .location {
+       font-size: 25px;
+   }
+
+   .week-weather-header {
+       font-size: 16px;
+   }
+
+   .display-box-top {
+       font-size: 20px;
+   }
+
+   .display-box-top span {
+       font-size: 20px;
+   }
+
+   #seven-days, #five-days {
+    display: none;
+   }
+
+   #three-days {
+       display: inline;
+   }
+
+   .forecast-container {
+       gap: 5px;
+   }
+
+   .display-box-bottom, .display-box-top {
+       text-align: center;
+   }
 }
 
 
