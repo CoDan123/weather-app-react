@@ -47,6 +47,7 @@ main {
     color: white;
     font-weight: 600;
     line-height: 25px;
+    cursor: pointer;
 }
 
 .has-searched-container {
@@ -102,12 +103,13 @@ main {
     border-radius: 0 5px 5px 0;
     background-color: #183980;
     color: #fff;
+    transition: 250ms;
 }
 
 .search-button:hover {
     cursor: pointer;
-    background-color: #fff;
-    color: #183980;
+    background-color: #1b3f8f;
+    color: #fff;
 }
 
 .main-temp-container {
@@ -375,7 +377,6 @@ main {
 
     .search-bar {
         border-radius: 5px;
-        width: 350px;   
     }
 
     .search-button {
@@ -422,6 +423,11 @@ main {
 }
 
 @media only screen and (max-width: 620px) {
+
+    .search-bar {
+        width: 350px;   
+    }
+
     .day-weather-card:nth-child(-n+4){
         display: none;
     }
