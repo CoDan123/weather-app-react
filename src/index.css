@@ -6,6 +6,7 @@
 
 body {
     font-family: 'montserrat', sans-serif;
+    width: 100%;
 }
 
 .app {
@@ -18,9 +19,8 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow-y: hidden;
-
+    min-height: 100vh;
+    width: 100%;
 }
 
 .search-container-home {
@@ -41,6 +41,13 @@ main {
     color: white;
     font-size: 45px;
     font-weight: 600;
+}
+
+.logo-has-searched {
+    color: white;
+    font-weight: 600;
+    line-height: 25px;
+    cursor: pointer;
 }
 
 .has-searched-container {
@@ -72,7 +79,11 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 640px; 
+}
+
+.search-box-has-searched {
+    padding-left: 50px;
 }
 
 .search-bar {
@@ -92,12 +103,13 @@ main {
     border-radius: 0 5px 5px 0;
     background-color: #183980;
     color: #fff;
+    transition: 250ms;
 }
 
 .search-button:hover {
     cursor: pointer;
-    background-color: #fff;
-    color: #183980;
+    background-color: #1b3f8f;
+    color: #fff;
 }
 
 .main-temp-container {
@@ -119,6 +131,7 @@ main {
     width: 180px;
     height: 180px;
   }
+
   .lds-ripple div {
     position: absolute;
     border: 4px solid #fff;
@@ -126,9 +139,11 @@ main {
     border-radius: 50%;
     animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
   }
+
   .lds-ripple div:nth-child(2) {
     animation-delay: -0.5s;
   }
+
   @keyframes lds-ripple {
     0% {
       top: 100px;
@@ -148,6 +163,7 @@ main {
   
 .today-temp {
     min-height: 40vh;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -170,7 +186,7 @@ main {
 
 .today-temp-right-box {
     height: 80%;
-    width: 450px;
+    width: 350px;
 }
 
 .temp-icon-container img {
@@ -236,7 +252,6 @@ main {
     justify-content: center;
     align-items: flex-start;
     width: 100%;
-    min-height: 40vh;
     padding-top: 2%;
     opacity: 0;
     animation: transitionIn 500ms;
@@ -258,17 +273,21 @@ main {
     color: rgb(148, 177, 255);
 }
 
+#five-days, #three-days {
+    display: none;
+}
+
 .forecast-container {
     display: flex;
+    text-align: center;
     gap: 15px;
 }
 
 .day-weather-card{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
     background-color: #1b45a1;
     color: #fff;
     padding: 25px 35px;
@@ -295,43 +314,181 @@ main {
 }
 
 @media only screen and (max-width: 1200px) {
-    .day-weather-card {
-        width: 100px;
-        height: 150px;
-    }
 
-    .today-temp {
-        flex-direction: column;
-        gap: 25px;
-        padding: 25px 0 35px 0;
+    .search-box-has-searched {
+        width: 450px;
     }
 
     .today-temp-left-box {
-        border-right: none;
-        border-bottom: 3px solid rgb(27,91,191);
+        margin-right: 30px;
+        padding-right: 30px;
     }
 
-    .forecast-container {
-        justify-content: center;
+    .day-weather-card {
+        width: 100px;
+        height: 150px;
+        padding: 15px 35px;
     }
 
-    .week-weather-header {
-        text-align: center;
-    }
-
-    .has-searched-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .location-date-box {
-        border-right: none;
+    .weather {
+        font-size: 25px;
     }
 
     .temp {
         font-size: 100px;
     }
+
+    .today-temp-right-box {
+        width: 325px;
+    }
+
+    .display-box-top {
+        font-size: 28px;
+    }
+
+    .display-box-bottom {
+        font-size: 16px;
+    }
+
+    .title-and-week-cards {
+        width: fit-content;
+    }
 }
+
+@media only screen and (max-width: 900px) {
+
+    .home-logo {
+        font-size: 35px;
+    }
+
+    .location-date-box {
+        border-right: 0;
+    }
+    
+    .search-box-has-searched {
+        display: none;
+    }
+    
+    .search-box {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .search-bar {
+        border-radius: 5px;
+    }
+
+    .search-button {
+        border-radius: 5px;
+    }
+
+    .today-temp {
+        flex-direction: column;
+        gap: 15px;
+        padding-bottom: 25px;
+    }
+
+    .today-temp-left-box {
+        margin-right: 0;
+        border-right: 0;
+        border-bottom: 2px solid rgb(27,91,191);
+    } 
+
+    .week-temp {
+        padding: 35px 0 ;
+        
+    }
+
+    .week-weather-header {
+        font-size: 20px;
+    }
+
+    .day-weather-card {
+        padding: 20px 35px;
+        
+    }  
+
+    .day-weather-card:nth-child(-n+2){
+        display: none;
+    }
+
+    #seven-days, #three-days {
+        display: none;
+    }
+
+    #five-days {
+        display: inline;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+
+    .search-bar {
+        width: 350px;   
+    }
+
+    .day-weather-card:nth-child(-n+4){
+        display: none;
+    }
+
+    .today-temp-left-box {
+        width: 100%;
+        justify-content: center;
+        padding: 15px 25px;
+    }
+
+    .temp-icon-container img {
+        width: 100px;
+        margin: auto;
+    }
+
+    .temp {
+        font-size: 75px;
+    }
+
+    .weather {
+        font-size: 20px;
+    }
+
+   .date {
+       font-size: 16px;
+   }
+
+   .location {
+       font-size: 25px;
+   }
+
+   .week-weather-header {
+       font-size: 16px;
+   }
+
+   .display-box-top {
+       font-size: 20px;
+   }
+
+   .display-box-top span {
+       font-size: 20px;
+   }
+
+   #seven-days, #five-days {
+    display: none;
+   }
+
+   #three-days {
+       display: inline;
+   }
+
+   .forecast-container {
+       gap: 5px;
+   }
+
+   .display-box-bottom, .display-box-top {
+       text-align: center;
+   }
+}
+
+
 
 
 

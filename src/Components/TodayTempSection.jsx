@@ -1,4 +1,3 @@
-import react from "react";
 import ConvertUnix from "../HandlerFunctions/ConvertUnix";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faO } from '@fortawesome/free-solid-svg-icons';

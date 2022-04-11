@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import DateBuilder from "./HandlerFunctions/DateBuilder";
 import TodayTempSection from "./Components/TodayTempSection";
 import WeekTempSection from "./Components/WeekTempSection";
@@ -41,6 +41,13 @@ function App() {
 
                 {(hasSearched === true && isLoading === false) ? (
                     <div className="location-date-box">
+                        <div className="logo-has-searched" onClick={() => {
+                                setHasSearched(false);
+                                setQuery('');
+                            }}><FontAwesomeIcon className="weather-logo" icon={faCloudSun} />
+                            WeatherFinder
+                        </div>
+
                         <div className="location">{geoCodeData.data.data[0].label}</div>
                         <div className="date">{DateBuilder(new Date())}</div>
                     </div>

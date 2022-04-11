@@ -1,4 +1,3 @@
-import react from "react";
 
 const ConvertUnix = (timeStamp) => {
     let dateObj = new Date(timeStamp * 1000);
