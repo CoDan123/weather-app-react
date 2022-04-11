@@ -41,6 +41,7 @@ function App() {
 
                 {(hasSearched === true && isLoading === false) ? (
                     <div className="location-date-box">
+                        <div className="logo-has-searched"><FontAwesomeIcon className="weather-logo" icon={faCloudSun} />WeatherFinder</div>
                         <div className="location">{geoCodeData.data.data[0].label}</div>
                         <div className="date">{DateBuilder(new Date())}</div>
                     </div>
