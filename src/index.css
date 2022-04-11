@@ -6,6 +6,7 @@
 
 body {
     font-family: 'montserrat', sans-serif;
+    width: 100%;
 }
 
 .app {
@@ -20,7 +21,7 @@ main {
     align-items: center;
     height: 100vh;
     overflow-y: hidden;
-
+    width: 100%;
 }
 
 .search-container-home {
@@ -72,7 +73,12 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 540px;
+    width: 640px;
+    
+}
+
+.search-box-has-searched {
+    padding-left: 50px;
 }
 
 .search-bar {
@@ -295,53 +301,57 @@ main {
 }
 
 @media only screen and (max-width: 1200px) {
+
+    .search-box-has-searched {
+        width: 450px;
+    }
+
+    .today-temp-left-box {
+        margin-right: 30px;
+        padding-right: 30px;
+    }
+
     .day-weather-card {
         width: 100px;
         height: 150px;
     }
 
-    .today-temp {
-        flex-direction: column;
-        gap: 25px;
-        padding: 25px 0 35px 0;
-    }
-
-    .today-temp-left-box {
-        border-right: none;
-        border-bottom: 3px solid rgb(27,91,191);
-    }
-
-    .forecast-container {
-        justify-content: center;
-    }
-
-    .week-weather-header {
-        text-align: center;
-    }
-
-    .has-searched-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .location-date-box {
-        border-right: none;
+    .weather {
+        font-size: 25px;
     }
 
     .temp {
         font-size: 100px;
+    }
+
+    .today-temp-right-box {
+        width: 325px;
+    }
+
+    .display-box-top {
+        font-size: 28px;
+    }
+
+    .display-box-bottom {
+        font-size: 16px;
+    }
+
+    .title-and-week-cards {
+        width: fit-content;
     }
 }
 
 @media only screen and (max-width: 820px) {
     .search-box {
         flex-direction: column;
+        width: 100%;
         gap: 10px;
     }
 
     .search-bar {
         border-radius: 5px;
         width: 350px;
+        
     }
 
     .search-button {
